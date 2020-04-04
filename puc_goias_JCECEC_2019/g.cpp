@@ -8,10 +8,12 @@ int main() {
 	bool relation;
 	cin >> n >> m >> s;
 	long long x0 = 0, y0 = 0, x1 = n, y1 = m;
-	for(int i = 0; i < s; i++) {
+	for (int i = 0; i < s; i++) {
 		cin >> x >> y >> h;
+		// Fórmula para ver se um ponto P(x, y) está acima ou abaixo de uma linha composta
+		// pelos pontos P1(x0, y0) e P(x1, y1)
 		relation = !((y - y0) * (x1 - x0) - (x - x0) * (y1 - y0) < 0);
-		if(relation) soma_a += h;
+		if (relation) soma_a += h;
 		else soma_b += h;
 	}
 	cout << soma_a << " " << soma_b << endl;

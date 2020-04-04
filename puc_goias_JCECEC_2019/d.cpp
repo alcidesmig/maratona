@@ -2,28 +2,33 @@
 
 using namespace std;
 
+/*
+	Utilizada estratégia para manter em memória os valores
+	já calculados, em caso de falta do valor pedido ele é 
+	calculado sem a necessidade de refazer os cálculos
+	dos valores anteriores ao máximo já calculado.
+*/
+
 int main() {
-	int n, s, last_num = 0;
-	pair<int, int> m[100*100];
-	int backup=2, backup_pos = 1;
-	int x = 48, y = 50;
-	int x_orig = 49, y_orig = 49;
+	int n, s,
+	    last_num = 0, pos = 1, cont = 2, x = 48,
+	    y = 50, x_orig = 49, y_orig = 49, comeca_for = 2;
+	pair<int, int> m[100 * 100];
 	bool cancelaFirst = false;
-	int comeca_for = 2;
-	int  cont_vezes = 0;
-	int pos = 1;
-	int cont = 2;
-	while(cin >> n >> s) {
-		int amount = 50 - (n/2 + 1);
-		
-		if(s <= last_num) {
-			cout << m[s].first-amount << " " << m[s].second-amount << endl;
+	while (cin >> n >> s) {
+		// Offset do cálculo para valores em geral
+		int amount = 50 - (n / 2 + 1);
+
+		// Se já foi calculado
+		if (s <= last_num) { 
+			cout << m[s].first - amount << " " << m[s].second - amount << endl;
 			continue;
 		}
-		
-		for (int i = comeca_for; i < 2*100*100+3; i+= 2) {
+
+		// Gera a "matriz"
+		for (int i = comeca_for; i < 2 * 100 * 100 + 3; i += 2) {
 			for (int j = 0; j < i; ++j) {
-				if(!cancelaFirst)	{
+				if (!cancelaFirst)	{
 					m[pos].first = x;
 					m[pos].second = y;
 				}
@@ -48,22 +53,24 @@ int main() {
 			m[pos].first = x;
 			m[pos].second = y;
 			int pos_max = pos;
-	
+
 			x = x_orig - cont;
 			y = y_orig + cont++;
-			pos = (i+1) * (i+1);
+			pos = (i + 1) * (i + 1);
 			cancelaFirst = true;
-			if(pos_max >= n*n) {
+			// Caso tenha atingido o valor necessário, faz o backup dos dados para
+			// recuperar os cálculos do ponto de parada caso necessário posteriormente
+			if (pos_max >= n * n) {
 				m[1].first = 49;
 				m[1].second = 49;
 				comeca_for = i + 2;
-				last_num = n*n;
-				cout << m[s].first-amount << " " << m[s].second-amount << endl;
+				last_num = n * n;
+				cout << m[s].first - amount << " " << m[s].second - amount << endl;
 				break;
 			}
 		}
 	}
-	
+
 	return 0;
 }
 /*
