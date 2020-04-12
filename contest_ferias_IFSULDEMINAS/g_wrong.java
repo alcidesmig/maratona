@@ -12,10 +12,10 @@ public class Main {
         for (int i = 0; i < n; i++) {
             vetor[i] = input.nextInt();
         }
-        
+
         for (int i = 0; i < q; i++) {
             int y = input.nextInt();
-            if(y == 2) {
+            if (y == 2) {
                 int x, a, b;
                 x = input.nextInt();
                 a = input.nextInt();
@@ -23,15 +23,15 @@ public class Main {
                 a--; b--;
                 int cont = 0;
                 for (int j = a; j <= b; j++) {
-                    if(vetor[j] > x) cont++;
+                    if (vetor[j] > x) cont++;
                 }
                 System.out.println(cont);
             }
-            if(y == 1) {
+            if (y == 1) {
                 int a, z;
                 a = input.nextInt();
                 z = input.nextInt();
-                vetor[a-1] = z;
+                vetor[a - 1] = z;
             }
         }
     }

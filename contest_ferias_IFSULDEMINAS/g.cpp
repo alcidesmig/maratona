@@ -88,7 +88,7 @@ int main() {
         cin >> op;
         if (op == 1) {
             cin >> a >> y;
-            preprocessUpdate(a-1, y, blk_sz, arr, bit);
+            preprocessUpdate(a - 1, y, blk_sz, arr, bit);
         }
         else {
             int L;
@@ -96,7 +96,7 @@ int main() {
             int K;
             cin >> K >> L >> R;
             int nam = query (L - 1, R - 1, K, arr, blk_sz, bit);
-            cout << (R-L-nam+1) << endl;
+            cout << (R - L - nam + 1) << endl;
         }
     }
 

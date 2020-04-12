@@ -11,19 +11,19 @@ int main() {
 		string x;
 		cin >> x;
 		for (auto c : x) {
-			if(c == '7') {
+			if (c == '7') {
 				sete++;
 			}
-			else if(c == 'Q' && q < sete) {
+			else if (c == 'Q' && q < sete) {
 				q++;
 			}
-			else if(c == 'J' && j < q) {
+			else if (c == 'J' && j < q) {
 				j++;
 			}
-			else if(c == 'K' && k < j) {
+			else if (c == 'K' && k < j) {
 				k++;
 			}
-			else if(c == 'A' && a < k) {
+			else if (c == 'A' && a < k) {
 				a++;
 			}
 		}

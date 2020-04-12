@@ -15,7 +15,7 @@ ll fact(int x)
 
 	// Kamenetsky
 	long long aux = ((x * log10(x / M_E) + log10(2 * M_PI * x) / 2.0));
-	
+
 	return floor(aux) + 1;
 }
 
