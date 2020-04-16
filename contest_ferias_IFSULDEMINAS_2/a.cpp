@@ -42,7 +42,7 @@ int main() {
 	string y = x;
 
 	long long v_7 = f(x, 7), v_1 = f(x, 1);
-	
+
 	cout << v_1 + v_7 << endl;
 
 	return 0;
